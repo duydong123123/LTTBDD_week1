@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Comparison</title>
+    <script>
+        // Data 1
+        const markWeight1 = 78; // kg
+        const markHeight1 = 1.69; // meters
+        const johnWeight1 = 92; // kg
+        const johnHeight1 = 1.95; // meters
+
+        // Data 2
+        const markWeight2 = 95; // kg
+        const markHeight2 = 1.88; // meters
+        const johnWeight2 = 85; // kg
+        const johnHeight2 = 1.76; // meters
+
+        // Calculate BMI for Data 1
+        const markBMI1 = markWeight1 / (markHeight1 ** 2);
+        const johnBMI1 = johnWeight1 / (johnHeight1 ** 2);
+
+        // Calculate BMI for Data 2
+        const markBMI2 = markWeight2 / (markHeight2 ** 2);
+        const johnBMI2 = johnWeight2 / (johnHeight2 ** 2);
+
+        // Determine if Mark has a higher BMI than John
+        const markHigherBMI1 = markBMI1 > johnBMI1;
+        const markHigherBMI2 = markBMI2 > johnBMI2;
+
+        // Function to display results in the console
+        function printBMIComparison() {
+            if (markHigherBMI1) {
+                console.log(`Mark's BMI (${markBMI1.toFixed(2)}) is higher than John's (${johnBMI1.toFixed(2)})!`);
+            } else {
+                console.log(`John's BMI (${johnBMI1.toFixed(2)}) is higher than Mark's (${markBMI1.toFixed(2)})!`);
+            }
+
+            if (markHigherBMI2) {
+                console.log(`Mark's BMI (${markBMI2.toFixed(2)}) is higher than John's (${johnBMI2.toFixed(2)})!`);
+            } else {
+                console.log(`John's BMI (${johnBMI2.toFixed(2)}) is higher than Mark's (${markBMI2.toFixed(2)})!`);
+            }
+        }
+
+        // Function to display results in the HTML
+        function displayResults() {
+            document.getElementById("bmi1").innerText = `Data 1 - Mark's BMI: ${markBMI1.toFixed(2)}, John's BMI: ${johnBMI1.toFixed(2)}, Mark has higher BMI: ${markHigherBMI1}`;
+            document.getElementById("bmi2").innerText = `Data 2 - Mark's BMI: ${markBMI2.toFixed(2)}, John's BMI: ${johnBMI2.toFixed(2)}, Mark has higher BMI: ${markHigherBMI2}`;
+
+            // Call the function to print to console
+            printBMIComparison();
+        }
+    </script>
+    <style>
+        p{
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            line-height: 1.5;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="displayResults()">
+    <h1 style="color: red;">BMI Comparison Between Mark and John</h1>
+    <p id="bmi1"></p>
+    <p id="bmi2"></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background-color: #f7f7f7;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            background-color: #fff;
+        }
+        .result {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: justify;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            background-color: #f7f7f7;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            :hover {
+                background-color: #ddd;
+            }
+            :focus {
+                outline: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <div class="result" id="result1"></div>
+    <div class="result" id="result2"></div>
+    <div class="result" id="result3"></div>
+
+    <script>
+        // Hàm tính tiền tip
+        const calculateTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+        // Các giá trị hóa đơn để kiểm tra
+        const bills = [275, 40, 430];
+
+        // Hiển thị kết quả cho mỗi giá trị hóa đơn
+        bills.forEach((bill, index) => {
+            const tip = calculateTip(bill);
+            const total = bill + tip;
+            document.getElementById(`result${index + 1}`).textContent = 
+                `The bill was ${bill}, the tip was ${tip.toFixed(2)}, and the total value ${total.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
